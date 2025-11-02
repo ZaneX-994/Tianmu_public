@@ -1,0 +1,53 @@
+server:
+  port: 8103
+
+spring:
+  application:
+    name: VideoService
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:49152/tianmu?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root123456
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 59000
+      password: e65K4t8w2
+      timeout: 2000
+
+      lettuce:
+        pool:
+          min-idle: 4
+          max-idle: 8
+          max-wait: 5000ms
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+minio:
+  url: http://127.0.0.1:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket_name: tianmu-upload
+
+rocketmq:
+  name-server: localhost:9876
+  producer:
+    group: tianmu-producer-group
+  consumer:
+    group: tianmu-consumer-group

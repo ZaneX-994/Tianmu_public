@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bytewizard.videoactionservice.mapper.VideoStatsMapper">
+
+    <resultMap id="BaseResultMap" type="com.bytewizard.videoactionservice.domain.entity.VideoStats">
+            <id property="video_id" column="video_id" />
+            <result property="view_count" column="view_count" />
+            <result property="bullet_count" column="bullet_count" />
+            <result property="like_count" column="like_count" />
+            <result property="coin_count" column="coin_count" />
+            <result property="collection_count" column="collection_count" />
+            <result property="comment_count" column="comment_count" />
+            <result property="create_time" column="create_time" />
+            <result property="update_time" column="update_time" />
+            <result property="is_delete" column="is_delete" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        video_id,view_count,bullet_count,like_count,coin_count,collection_count,
+        comment_count,create_time,update_time,is_delete
+    </sql>
+</mapper>

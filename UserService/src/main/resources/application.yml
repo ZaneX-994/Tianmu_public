@@ -1,0 +1,33 @@
+server:
+  port: 8102
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: UserService
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tianmu?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: gK3T9n%q2M@j7Z9
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+      password: e65K4t8w2
+      timeout: 2000
+      lettuce:
+        pool:
+          min-idle: 4
+          max-idle: 8
+          max-active: 8
+          max-wait: 5000ms
