@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bytewizard.common.constants.ErrorCode;
 import com.bytewizard.common.constants.SnowflakeConstant;
 import com.bytewizard.common.exception.BusinessException;
-import com.bytewizard.videoactionservice.domain.dto.video.VideoActionRequest;
+import com.bytewizard.videoactionservice.domain.dto.VideoActionRequest;
 import com.bytewizard.videoactionservice.domain.entity.Coin;
 import com.bytewizard.videoactionservice.domain.entity.UserStats;
 import com.bytewizard.videoactionservice.domain.entity.VideoStats;

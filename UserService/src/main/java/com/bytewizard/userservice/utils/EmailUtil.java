@@ -26,7 +26,7 @@ public class EmailUtil {
             // 邮件的主题(标题)
             mail.setSubject(SMSConstant.EMAIL_SUBJECT);
             // 邮件的内容
-            mail.setMsg(SMSConstant.VERIFICATION_CODE_TEMPLATE);
+            mail.setMsg(String.format(SMSConstant.VERIFICATION_CODE_TEMPLATE, authCode));
             // 发送
             mail.send();
         } catch (EmailException e) {

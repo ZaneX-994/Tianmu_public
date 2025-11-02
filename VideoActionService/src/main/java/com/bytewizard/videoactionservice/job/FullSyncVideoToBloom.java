@@ -2,7 +2,7 @@ package com.bytewizard.videoactionservice.job;
 
 import com.bytewizard.videoactionservice.domain.entity.Video;
 import com.bytewizard.videoactionservice.service.VideoService;
-import com.bytewizard.videoactionservice.util.BitMapBloomUtil;
+import com.bytewizard.videoactionservice.utils.BitMapBloomUtil;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

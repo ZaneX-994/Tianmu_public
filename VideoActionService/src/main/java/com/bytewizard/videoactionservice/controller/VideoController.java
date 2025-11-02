@@ -2,16 +2,17 @@ package com.bytewizard.videoactionservice.controller;
 
 import com.bytewizard.common.domain.BaseResponse;
 import com.bytewizard.common.utils.ResultUtils;
+import com.bytewizard.videoactionservice.domain.dto.CancelVideoActionRequest;
 import com.bytewizard.videoactionservice.domain.dto.CreateCommentRequest;
-import com.bytewizard.videoactionservice.domain.dto.video.CancelVideoActionRequest;
-import com.bytewizard.videoactionservice.domain.dto.video.VideoActionRequest;
-import com.bytewizard.videoactionservice.domain.dto.video.VideoSubmitRequest;
+import com.bytewizard.videoactionservice.domain.dto.VideoActionRequest;
+import com.bytewizard.videoactionservice.domain.dto.VideoSubmitRequest;
 import com.bytewizard.videoactionservice.domain.vo.*;
 import com.bytewizard.videoactionservice.service.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -35,13 +36,18 @@ public class VideoController {
     private CommentService commentService;
 
     @PostMapping("/submit")
-    public BaseResponse<Boolean> submit(@RequestBody VideoSubmitRequest request) throws Exception {
-        return ResultUtils.success(videoService.submit(request));
+    public BaseResponse<Boolean> submit(@RequestParam String fileUrl, @RequestParam Long userId, @RequestParam MultipartFile file, @RequestParam String title, @RequestParam Integer type, @RequestParam Double duration, @RequestParam Integer categoryId, @RequestParam String tags, @RequestParam String description) throws Exception {
+        VideoSubmitRequest videoSubmitRequest = new VideoSubmitRequest(fileUrl, userId, file, title, type, duration, categoryId, tags, description);
+
+        return ResultUtils.success(videoService.submit(videoSubmitRequest));
     }
 
     @GetMapping("/list")
     public BaseResponse<List<VideoListResponse>> videoList(@RequestParam(value = "current") Integer current, @RequestParam(value = "pageSize") Integer pageSize) {
-        return ResultUtils.success(videoService.getVideoList(current, pageSize));
+        System.out.println("videoList calls");
+        List<VideoListResponse> videoList = videoService.getVideoList(current, pageSize);
+
+        return ResultUtils.success(videoList);
     }
 
     @PostMapping("/detail")

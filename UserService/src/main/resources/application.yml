@@ -9,9 +9,9 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/tianmu?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:49152/tianmu?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: gK3T9n%q2M@j7Z9
+    password: root123456
 
   cloud:
     nacos:
@@ -22,7 +22,7 @@ spring:
     redis:
       database: 0
       host: localhost
-      port: 6379
+      port: 59000
       password: e65K4t8w2
       timeout: 2000
       lettuce:

@@ -209,7 +209,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if (StringUtils.isBlank(request.getPassword())) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "密码不能为空");
         }
-        if (StringUtils.isBlank(request.getNickName())) {
+        if (StringUtils.isBlank(request.getNickname())) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "昵称不能为空");
         }
     }
@@ -236,7 +236,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         User user = new User();
         user.setUserId(IdUtil.getSnowflake().nextId());
-        user.setNickname(request.getNickName());
+        user.setNickname(request.getNickname());
 
         // 设置账号(手机号或邮箱)
         if (request.getAccount().matches(UserConstant.EMAIL_REGEX)) {

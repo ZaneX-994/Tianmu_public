@@ -3,7 +3,7 @@ package com.bytewizard.videoactionservice.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.bytewizard.common.domain.dto.SendBulletRequest;
 import com.bytewizard.common.domain.vo.OnlineBulletResponse;
-import com.bytewizard.videoactionservice.domain.dto.bullet.DeleteBulletRequest;
+import com.bytewizard.videoactionservice.domain.dto.DeleteBulletRequest;
 import com.bytewizard.videoactionservice.domain.entity.Bullet;
 import org.springframework.web.bind.annotation.RequestBody;
 

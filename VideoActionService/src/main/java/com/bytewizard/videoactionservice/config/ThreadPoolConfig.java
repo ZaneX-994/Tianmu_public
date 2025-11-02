@@ -1,6 +1,6 @@
 package com.bytewizard.videoactionservice.config;
 
-import com.bytewizard.videoactionservice.constatns.ThreadPoolExecutorConstant;
+import com.bytewizard.videoactionservice.constants.ThreadPoolExecutorConstant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

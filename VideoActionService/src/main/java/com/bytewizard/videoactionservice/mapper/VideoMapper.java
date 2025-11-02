@@ -7,7 +7,7 @@ import com.bytewizard.videoactionservice.domain.vo.VideoDetailsResponse;
 import com.bytewizard.videoactionservice.domain.vo.VideoListResponse;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-
+import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
@@ -19,14 +19,15 @@ import java.util.List;
 @Mapper
 public interface VideoMapper extends BaseMapper<Video> {
 
-    List<VideoListResponse> selectVideoWithStats(int offset, int dynamicPageSize);
+    List<VideoListResponse> selectVideoWithStats(@Param("current") Integer current, @Param("pageSize") Integer pageSize);
+
 
     VideoDetailsResponse getVideoDetails(Long videoId);
 
     @Select("SELECT EXISTS(SELECT 1 FROM video WHERE video_id = #{videoId})")
     boolean existsByVideoId(Long videoId);
 
-    List<VideoListResponse> recommendVideoList(Integer categoryId, Long videoId);
+    List<VideoListResponse> recommendVideoList(@Param("categoryId") Integer categoryId, @Param("videoId") Long vid);
 
     List<VideoListResponse> getLikeVideoList(Long userId);
 

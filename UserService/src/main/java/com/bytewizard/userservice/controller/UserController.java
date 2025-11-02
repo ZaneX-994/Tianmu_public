@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/user")
 @Slf4j
 public class UserController {
 
@@ -41,9 +41,9 @@ public class UserController {
     }
 
     @GetMapping("/sendVerificationCode")
-    public BaseResponse<String> sendVerificationCode(@RequestParam(value = "email") String email) {
+    public BaseResponse<String> sendVerificationCode(@RequestParam(value = "account") String account) {
 
-        userService.sendVerificationCode(email);
+        userService.sendVerificationCode(account);
 
         return ResultUtils.success(SMSConstant.SMS_SEND_SUCCESS_MSG);
     }

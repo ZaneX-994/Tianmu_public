@@ -18,14 +18,14 @@ spring:
         server-addr: localhost:8848
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/tianmu?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:49152/tianmu?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: gK3T9n%q2M@j7Z9
+    password: root123456
   data:
     redis:
-      database: 15
+      database: 0
       host: localhost
-      port: 6379
+      port: 59000
       timeout: 50000
       password: e65K4t8w2
       #    password: e65K4t8w2 # Redis 服务器密码（当前未启用）

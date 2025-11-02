@@ -11,14 +11,14 @@ import com.bytewizard.common.constants.SnowflakeConstant;
 import com.bytewizard.common.constants.VideoConstant;
 import com.bytewizard.common.domain.vo.OnlineBulletResponse;
 import com.bytewizard.common.exception.BusinessException;
-import com.bytewizard.videoactionservice.domain.dto.video.VideoActionRequest;
-import com.bytewizard.videoactionservice.domain.dto.video.VideoSubmitRequest;
+import com.bytewizard.videoactionservice.domain.dto.VideoActionRequest;
+import com.bytewizard.videoactionservice.domain.dto.VideoSubmitRequest;
 import com.bytewizard.videoactionservice.domain.entity.*;
 import com.bytewizard.videoactionservice.domain.vo.*;
 import com.bytewizard.videoactionservice.mapper.VideoMapper;
 import com.bytewizard.videoactionservice.service.*;
-import com.bytewizard.videoactionservice.util.BitMapBloomUtil;
-import com.bytewizard.videoactionservice.util.MinioUtil;
+import com.bytewizard.videoactionservice.utils.BitMapBloomUtil;
+import com.bytewizard.videoactionservice.utils.MinioUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -197,8 +197,10 @@ public class VideoServiceImpl extends ServiceImpl<VideoMapper, Video> implements
         // - 第三页：offset=26（跳过前26条，返回 26~40，共15条）
         int offset = (current == 1) ? 0 : 11 + (current - 2) * 15;
         System.out.println("offset: " + offset + ", dynamicPageSize: " + dynamicPageSize);
+        List<VideoListResponse> videoListResponses = videoMapper.selectVideoWithStats(offset, dynamicPageSize);
+        System.out.println("anything here????");
 
-        return videoMapper.selectVideoWithStats(offset, dynamicPageSize);
+        return videoListResponses;
 
     }
 

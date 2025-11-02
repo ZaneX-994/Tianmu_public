@@ -22,23 +22,28 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        video_id,file_url,cover_url,user_id,title,type,
-        duration,category_id,tags,description,status,
-        create_time,update_time,is_delete
+        video_id,file_url,cover_url,
+        user_id,title,type,
+        duration,category_id,tags,
+        description,status,create_time,
+        update_time,is_delete
     </sql>
 
     <select id="selectVideoWithStats" resultType="com.bytewizard.videoactionservice.domain.vo.VideoListResponse">
-        SELECT v.video_id, vs.view_count, vs.bullet_count, v.user_id, v.file_url, v.cover_url, v.duration,
-               v.title, v.create_time, u.nickname
+        SELECT v.video_id, vs.view_count, vs.bullet_count, v.user_id,
+        v.file_url, v.cover_url, v.duration,
+        v.title, v.create_time, u.nickname
         FROM video v
-                 LEFT JOIN video_stats vs ON v.video_id = vs.video_id
-                 LEFT JOIN `user` u ON v.user_id = u.user_id
-        WHERE v.is_delete = 0 and v.category_id = #{categoryId} and v.video_id != #{videoId}
+        LEFT JOIN video_stats vs ON v.video_id = vs.video_id
+        LEFT JOIN `user` u ON v.user_id = u.user_id
+        WHERE v.is_delete = 0
+        ORDER BY v.create_time ASC
+        LIMIT #{current}, #{pageSize}
     </select>
 
     <select id="getVideoDetails" resultType="com.bytewizard.videoactionservice.domain.vo.VideoDetailsResponse">
         SELECT v.video_id, v.file_url, v.user_id, v.title, v.type, v.duration, v.tags, v.description,
-               v.create_time, vs.view_count, vs.bullet_count, vs.like_count, vs.coin_count, vs.favorite_count,
+               v.create_time, vs.view_count, vs.bullet_count, vs.like_count, vs.coin_count, vs.collection_count,
                vs.comment_count, u.nickname, u.avatar
         FROM video v
                  LEFT JOIN video_stats vs ON v.video_id = vs.video_id

@@ -1,8 +1,8 @@
 package com.bytewizard.videoactionservice.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.bytewizard.videoactionservice.domain.dto.video.VideoActionRequest;
-import com.bytewizard.videoactionservice.domain.dto.video.VideoSubmitRequest;
+import com.bytewizard.videoactionservice.domain.dto.VideoActionRequest;
+import com.bytewizard.videoactionservice.domain.dto.VideoSubmitRequest;
 import com.bytewizard.videoactionservice.domain.entity.Video;
 import com.bytewizard.videoactionservice.domain.vo.FavoriteVideoResponse;
 import com.bytewizard.videoactionservice.domain.vo.TripleActionResponse;
@@ -10,6 +10,7 @@ import com.bytewizard.videoactionservice.domain.vo.VideoListResponse;
 import com.bytewizard.videoactionservice.domain.vo.VideoResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -39,4 +40,5 @@ public interface VideoService extends IService<Video> {
     List<VideoListResponse> getCategoryVideoList(Integer categoryId);
 
     List<VideoListResponse> getSubmitVideoList(@Valid @NotNull(message = "用户ID不能为空") Long userId);
+
 }

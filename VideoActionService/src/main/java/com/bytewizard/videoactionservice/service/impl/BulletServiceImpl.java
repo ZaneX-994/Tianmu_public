@@ -7,7 +7,7 @@ import com.bytewizard.common.constants.ErrorCode;
 import com.bytewizard.common.domain.dto.SendBulletRequest;
 import com.bytewizard.common.domain.vo.OnlineBulletResponse;
 import com.bytewizard.common.exception.BusinessException;
-import com.bytewizard.videoactionservice.domain.dto.bullet.DeleteBulletRequest;
+import com.bytewizard.videoactionservice.domain.dto.DeleteBulletRequest;
 import com.bytewizard.videoactionservice.domain.entity.Bullet;
 import com.bytewizard.videoactionservice.domain.entity.User;
 import com.bytewizard.videoactionservice.domain.entity.Video;

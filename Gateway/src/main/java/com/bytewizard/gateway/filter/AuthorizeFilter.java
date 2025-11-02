@@ -57,6 +57,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         ServerHttpRequest request = exchange.getRequest();
         String path = request.getPath().value();
         String token = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+        System.out.println(path);
         if (excludePaths.contains(path)) {
             return chain.filter(exchange);
         }

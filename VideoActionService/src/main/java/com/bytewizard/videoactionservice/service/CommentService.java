@@ -1,7 +1,7 @@
 package com.bytewizard.videoactionservice.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.bytewizard.videoactionservice.domain.dto.video.CancelVideoActionRequest;
+import com.bytewizard.videoactionservice.domain.dto.CancelVideoActionRequest;
 import com.bytewizard.videoactionservice.domain.dto.CreateCommentRequest;
 import com.bytewizard.videoactionservice.domain.entity.Comment;
 import com.bytewizard.videoactionservice.domain.vo.CommentResponse;

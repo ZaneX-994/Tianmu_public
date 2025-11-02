@@ -1,9 +1,11 @@
 server:
   port: 8103
+  servlet:
+    context-path: /api
 
 spring:
   application:
-    name: VideoService
+    name: VideoActionService
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,8 +1,8 @@
 package com.bytewizard.videoactionservice.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.bytewizard.videoactionservice.domain.dto.file.InitUploadRequest;
-import com.bytewizard.videoactionservice.domain.dto.file.MergeChunkRequest;
+import com.bytewizard.videoactionservice.domain.dto.InitUploadRequest;
+import com.bytewizard.videoactionservice.domain.dto.MergeChunkRequest;
 import com.bytewizard.videoactionservice.domain.entity.File;
 
 import java.util.List;
