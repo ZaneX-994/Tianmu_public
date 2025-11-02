@@ -16,7 +16,7 @@
     <description>tianmu</description>
     <modules>
         <module>Common</module>
-<!--        <module>GateWay</module>-->
+        <module>GateWay</module>
         <module>VideoActionService</module>
         <module>RealtimeService</module>
         <module>SearchSyncService</module>
